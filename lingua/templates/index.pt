@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+        <script src="ng/controllers/test.js"></script>
+    </head>
+    <body ng-app="myapp">
+        <div ng-controller="HelloController" >
+            <h2>Hello {{helloTo.title}} !</h2>
+        </div>
+    </body>
+</html>  
