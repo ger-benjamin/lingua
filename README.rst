@@ -79,6 +79,17 @@ At root of your VENV, create a pyramid.wsgi file::
     setup_logging(ini_path)
     application = get_app(ini_path, 'main')
 
+Create db
+----------
+Create a PostgreSQL databse named lingua and create a 'linga' role::
+
+    sudo -u postgres createdb lingua
+    sudo -u postgres psql -c "CREATE ROLE \"lingua\" WITH PASSWORD 'lingua' SUPERUSER LOGIN;" lingua
+
+Then build the application (see lower) and finally execute this command::
+
+    $VENV/bin/initialize_lingua_db development.ini
+
 
 Build
 =====
