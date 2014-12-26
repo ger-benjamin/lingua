@@ -38,7 +38,7 @@ class MainEntry(object):
         params = self.request.params;
 
         max_results = params.get('max_results')
-        if max_results.isdigit():
+        if max_results and max_results.isdigit():
             self.max_results = min(self.max_results, int(max_results))
 
         lang = params.get('lang')
