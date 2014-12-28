@@ -22,6 +22,7 @@ class MainEntry(object):
         self.vocs = None
         self.avaliable_langs = ['fr', 'de']
         self.lang = None
+        self.dbs = mmodel.DBSession 
 
     @view_config(route_name='words', renderer='json', request_method='GET')
     def get_words(self):
@@ -32,7 +33,13 @@ class MainEntry(object):
 
     @view_config(route_name='vocs', renderer='json', request_method='GET')
     def get_vocs(self):
-        return mmodel.test()
+        vocs = []
+        for voc in self.dbs.query(mmodel.Voc).all():
+            vocs.append({
+                'id': voc.id,
+                'name': voc.name
+                })
+        return vocs
 
     def _get_params(self):
         params = self.request.params;
